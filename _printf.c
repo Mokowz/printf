@@ -19,6 +19,10 @@ int _printf(const char *format, ...)
 		{
 			putchr(format[i]);
 		}
+		else if (format[i + 1] == 'c')
+		{
+			putchr(va_arg(args, int));
+		}
 		count += 1;
 
 	}
