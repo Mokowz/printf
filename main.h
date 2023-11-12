@@ -10,7 +10,7 @@ typedef struct formatter
 {
 	char *type;
 	int (*func)();
-}
+} formats_t;
 
 int print_chr(va_list args);
 int print_operations(const char *format, formats_t *print_ops, va_list args);
