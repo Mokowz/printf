@@ -9,7 +9,6 @@
 int _printf(const char *format, ...)
 {
 	int count = 0, str_count;
-	char *str;
 	va_list args;
 
 	if (((format[0] == '%') && (format[1] == '\0')) || !format || format == NULL)
