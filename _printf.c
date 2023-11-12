@@ -1,6 +1,49 @@
 #include "main.h"
 
 /**
+ * print_operations - check whether the specifier exists in the list and prints it
+ * @format: String beign passed in the funct
+ * @print_ops: List of operations tocheck
+ * @args: List of arguments to print
+ *
+ * Return: int
+ */
+int print_operations(const char *format, formats_t *print_ops, va_list args)
+{
+	int i = 0, count = 0;
+
+	while (*format != '\0')
+	{
+		if (*format == '%')
+		{
+			format++;
+
+			while (print_ops[i].type != NULL && *format != *(print_ops[i].type))
+				i++;
+
+			if (print_ops[i].type != NULL)
+			{
+				count += print_ops[i].func(args);
+			}
+			else
+			{
+				if (*format != '\0')
+					return (-1);
+				if (*format != '%')
+					count += putchr('%');
+				count += putchr(*format);
+			}
+		}
+		else
+		{
+			count += putchr(*format);
+		}
+		format++;
+	}
+	return (count);
+}
+
+/**
  * _printf - acts as the printf function and outputs to the stdout
  * @format: The format string to be printed
  *
@@ -8,43 +51,20 @@
  */
 int _printf(const char *format, ...)
 {
-	int count = 0, str_count;
 	va_list args;
+	int count = 0;
+
+	formats_t operations[] = {
+		{"c", print_chr},
+		{"s", _puts},
+	};
 
 	if (((format[0] == '%') && (format[1] == '\0')) || !format || format == NULL)
 		return (-1);
+
 	va_start(args, format);
-	while (*format)
-	{
-		if (*format != '%')
-		{
-			write(1, format, 1);
-			count++;
-		}
-		else
-		{
-			format++;
-			if (*format == '\0')
-			{
-				break;
-			}
-			else if (*format == '%')
-			{
-				write(1, format, 1);
-				count++;
-			}
-			else if (*format == 'c')
-			{
-				putchr(va_arg(args, int));
-				count++;
-			}
-			else if (*format == 's')
-			{
-				str_count = _puts(va_arg(args, char *));
-				count += str_count;
-			}
-		} format++;
-	}
+	count  = print_operations(format, operations, args);
 	va_end(args);
+
 	return (count);
 }

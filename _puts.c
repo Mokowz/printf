@@ -2,19 +2,22 @@
 
 /**
  * _puts - print a string
- * @s: String
+ * @args: List of arguments
  *
  * Return: size
  */
-int _puts(char *s)
+int _puts(va_list args)
 {
-	int total_count = 0;
+	int len = 0;
+	char *s;
 
-	if (s)
-	{
-		write(1, s, strlen(s));
-		total_count += strlen(s);
-	}
+	s = va_arg(args, char *);
 
-	return (total_count);
+	if (s == NULL)
+		s = "(null)";
+
+	while (s[len] != '0')
+		len += putchr(s[len]);
+
+	return (len);
 }
