@@ -27,7 +27,7 @@ int print_operations(const char *format, formats_t *print_ops, va_list args)
 			}
 			else
 			{
-				if (*format != '\0')
+				if (*format == '\0')
 					return (-1);
 				if (*format != '%')
 					count += putchr('%');
