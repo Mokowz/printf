@@ -57,9 +57,10 @@ int _printf(const char *format, ...)
 	formats_t operations[] = {
 		{"c", print_chr},
 		{"s", _puts},
+		{NULL, NULL}
 	};
 
-	if (((format[0] == '%') && (format[1] == '\0')) || !format || format == NULL)
+	if (format == NULL)
 		return (-1);
 
 	va_start(args, format);
