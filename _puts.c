@@ -13,9 +13,6 @@ int _puts(va_list args)
 
 	s = va_arg(args, char *);
 
-	if (s == NULL)
-		s = "(null)";
-
 	while (s[len] != '\0')
 		len += putchr(s[len]);
 
