@@ -12,7 +12,7 @@ int _puts(va_list args)
 	char *s;
 
 	s = va_arg(args, char *);
-	
+
 	if (s == NULL)
 	{
 		s = "(null)";
