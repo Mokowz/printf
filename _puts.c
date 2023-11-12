@@ -16,7 +16,7 @@ int _puts(va_list args)
 	if (s == NULL)
 		s = "(null)";
 
-	while (s[len] != '0')
+	while (s[len] != '\0')
 		len += putchr(s[len]);
 
 	return (len);

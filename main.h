@@ -6,6 +6,11 @@
 #include <unistd.h>
 #include <string.h>
 
+/**
+ * struct formatter - check for formats
+ * @type: Fomrat to print
+ * @func: Print function to use there
+ */
 typedef struct formatter
 {
 	char *type;

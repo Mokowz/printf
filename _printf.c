@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_operations - check whether the specifier exists in the list and prints it
+ * print_operations - check whether the specifier exist
  * @format: String beign passed in the funct
  * @print_ops: List of operations tocheck
  * @args: List of arguments to print
