@@ -8,7 +8,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int count = 0;
+	int count = 0, str_count;
 	char *str;
 	va_list args;
 
@@ -41,9 +41,8 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == 's')
 			{
-				str = va_arg(args, char *);
-				write(1, str, strlen(str));
-				count += strlen(str);
+				str_count = _puts(va_arg(args, char *));
+				count += str_count;
 			}
 		} format++;
 	}

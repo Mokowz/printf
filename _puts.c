@@ -12,10 +12,8 @@ int _puts(char *s)
 
 	if (s)
 	{
-		for (total_count = 0; s[total_count] != '\0'; total_count++)
-		{
-			putchr(s[total_count]);
-		}
+		write(1, s, strlen(s));
+		total_count += strlen(s);
 	}
 
 	return (total_count);
