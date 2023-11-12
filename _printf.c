@@ -8,49 +8,45 @@
  */
 int _printf(const char *format, ...)
 {
-	unsigned int count = 0;
+	int count = 0;
+	char *str;
 	va_list args;
 
-
-	if (((format[0] == '%') && (format[1] == '\0')) || !format)
+	if (((format[0] == '%') && (format[1] == '\0')) || !format || format == NULL)
 		return (-1);
-
 	va_start(args, format);
-
-	while (*format != '\0')
+	while (*format)
 	{
-		if (*format == '%')
+		if (*format != '%')
 		{
-			format++;
-
-			switch (*format)
-			{
-				case 'c':
-					count += putchr(va_arg(args, int));
-					break;
-				case 's':
-					count += _puts(va_arg(args, char *));
-					break;
-				case '%':
-					count += putchr(*format);
-					break;
-				default:
-					count += putchr('%');
-					count += putchr(*format);
-					break;
-			}
-		
-
+			write(1, format, 1);
+			count++;
 		}
 		else
 		{
-			count += putchr(*format);
-		}
-
-		format++;
+			format++;
+			if (*format == '\0')
+			{
+				break;
+			}
+			else if (*format == '%')
+			{
+				write(1, format, 1);
+				count++;
+			}
+			else if (*format == 'c')
+			{
+				putchr(va_arg(args, int));
+				count++;
+			}
+			else if (*format == 's')
+			{
+				str = va_arg(args, char *);
+				write(1, str, strlen(str));
+				count += strlen(str);
+			}
+		} format++;
 	}
-
 	va_end(args);
-
 	return (count);
 }
