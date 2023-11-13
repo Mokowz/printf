@@ -1,6 +1,4 @@
-#include <stdarg.h>
-#include <unistd.h>
-
+#include "main.h"
 /**
  * print_d - Custom function to print integers
  * @args: va_list containing the integer to be printed
