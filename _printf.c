@@ -57,7 +57,9 @@ int _printf(const char *format, ...)
 	formats_t operations[] = {
 		{"c", print_chr},
 		{"s", _puts},
-		{NULL, NULL}
+		{NULL, NULL},
+		{"d", print_d},
+		{"i", print_i}
 	};
 
 	if (format == NULL)
