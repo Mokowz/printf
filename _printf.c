@@ -59,7 +59,7 @@ int _printf(const char *format, ...)
 		{"s", _puts},
 		{"d", print_d},
 		{"i", print_i},
-	       	{NULL, NULL}
+		{NULL, NULL}
 	};
 
 	if (format == NULL)
