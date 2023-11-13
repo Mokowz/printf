@@ -7,16 +7,17 @@
  */
 int print_d(va_list args)
 {
-    int num = va_arg(args, int);
-    int count = 0;
-    int divisor = 1;
+	
+        int num = va_arg(args, int);
+        int count = 0;
+        int divisor = 1;
 
-    if (num < 0)
-    {
-        write(1, "-", 1);
-        count++;
-        num = -num;
-    }
+        if (num < 0)
+	{
+                write(1, "-", 1);
+                count++;
+                num = -num;
+	}
 
     while (num / divisor > 9)
         divisor *= 10;
