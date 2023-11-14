@@ -9,7 +9,7 @@ int print_oct(va_list va)
 	int i;
 	int count = 0;
 	int *array;
-	unsigned int num = va_arg(va, umsigned int);
+	unsigned int num = va_arg(va, unsigned int);
 	unsigned int tem = num;
 
 	while (num / 8 != 0)

@@ -62,8 +62,6 @@ int _printf(const char *format, ...)
 		{"b", print_bin},
 		{"u", print_unsigned},
 		{"o", print_oct},
-		{"x", print_hex},
-		{"X", print_Hex},
 		{NULL, NULL}
 	};
 
