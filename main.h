@@ -27,5 +27,6 @@ int print_bin(va_list args);
 int print_i(va_list args);
 int print_unsigned(va_list args);
 int print_oct(va_list va);
+int print_hex(va_list va);
 
 #endif
