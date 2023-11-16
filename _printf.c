@@ -60,6 +60,7 @@ int _printf(const char *format, ...)
 		{"d", print_d},
 		{"i", print_i},
 		{"b", print_bin},
+		{"x", 
 		{NULL, NULL}
 	};
 
