@@ -25,7 +25,7 @@ int _puts(va_list args);
 int print_d(va_list args);
 int print_bin(va_list args);
 int print_i(va_list args);
-int hex_to_str(unsigned int num, unsigned int hex, char chr)
+int hex_to_str(unsigned int num, unsigned int hex, char chr);
 int print_hex_u(va_list args);
 int print_hex_l(va_list args);
 int print_unsigned(va_list args);
